@@ -1,24 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Clock from './components/Clock.js'
+import Temperature from './components/Temperature.js'
+import Waves from './components/Waves.js'
+import Wind from './components/Wind.js'
+import Tides from './components/Tides.js'
+import Daylength from './components/Daylength.js'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Clock />
+      <Temperature />
+      <Waves />
+      <Wind />
+      <Tides />
+      <Daylength />
     </div>
   );
 }
