@@ -29,7 +29,8 @@ class Form extends Component {
           type="text"
           placeholder="location"
         />
-        <button>Submit</button>
+
+        <button>+</button>
       </form>
     );
   }

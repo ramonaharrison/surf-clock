@@ -10,10 +10,12 @@ state = {
 };
 
 handleSubmit = location => {
-  console.log("New location submitted: " + location);
-  this.setState(prevState => ({
-    locations: [...prevState.locations, location]
-  }));
+  if (location) {
+    console.log("New location submitted: " + location);
+    this.setState(prevState => ({
+      locations: [...prevState.locations, location]
+    }));
+  }
 };
 
 handleLocationChange = location => {
