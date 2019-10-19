@@ -8,12 +8,11 @@ const lat = 58.7984;
 const lng = 17.8081;
 const params = 'waveHeight,airTemperature';
 
-const openCageKey = '34157201f173440c9fad0a7ba181bf06'
-const stormGlassKey = '2ce8376e-d8c2-11e9-b707-0242ac130004-2ce83886-d8c2-11e9-b707-0242ac130004'
+
 
 const fetchLatLong = (location) => {
   var encodedLocation = encodeURIComponent(location)
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${openCageKey}`)
+  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
   .then((response) => response.json())
   .then((jsonData) => {
     console.log(jsonData);
@@ -23,7 +22,7 @@ const fetchLatLong = (location) => {
 const fetchWeather = (lat, long, params) => {
   fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${long}&params=${params}`, {
     headers: {
-      'Authorization': stormGlassKey
+      'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
     }
   })
   .then((response) => response.json())
