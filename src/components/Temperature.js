@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Temperature = props => {
+  console.log(props.temperature);
   return (
     <div className="temperature">
-      <p>Temperature: 15 - 19°C</p>
+      <h1>{props.temperature}</h1>
     </div>
   );
 }

@@ -13,8 +13,10 @@ handleSubmit = location => {
   if (location) {
     console.log("New location submitted: " + location);
     this.setState(prevState => ({
-      locations: [...prevState.locations, location]
+      locations: [...prevState.locations, location],
+      selectedIndex: prevState.locations.size
     }));
+    this.props.onLocationChange(location)
   }
 };
 
@@ -23,6 +25,7 @@ handleLocationChange = location => {
   this.setState(prevState => ({
     selectedIndex: prevState.locations.indexOf(location)
   }));
+  this.props.onLocationChange(location)
 }
 
   render() {
