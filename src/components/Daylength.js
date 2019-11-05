@@ -1,12 +1,13 @@
 import React from 'react';
+import Value from './Value.js'
 
 const Daylength = props => {
   const sunrise = new Date(props.sunrise).toLocaleTimeString('en-US', { timeStyle: 'short' })
   const sunset = new Date(props.sunset).toLocaleTimeString('en-US', { timeStyle: 'short' })
   return (
     <div className="daylength">
-      <p>Sunrise: {sunrise}</p>
-      <p>Sunset: {sunset}</p>
+      <Value label={'Sunrise'} value={sunrise}/>
+      <Value label={'Sunset'} value={sunset}/>
     </div>
   );
 }

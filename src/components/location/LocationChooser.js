@@ -32,7 +32,6 @@ handleLocationChange = location => {
     return (
       <div className="LocationChooser">
         <Form onSubmit={this.handleSubmit}/>
-        <LocationList locations={this.state.locations} handleLocationChange={this.handleLocationChange}/>
       </div>
     );
   }

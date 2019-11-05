@@ -111,11 +111,11 @@ function App() {
         <div className="App">
         <LocationChooser onLocationChange={handleLocationChange}/>
         <Clock />
-        <Temperature temperature={weather.airTemperature}/>
-        <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
-        <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
-        <Tides waterTemperature={weather.waterTemperature}/>
         <Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/>
+        <Temperature airTemperature={weather.airTemperature}/>
+        <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
+        <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
+        <Tides waterTemperature={weather.waterTemperature}/>
         </div>
       );
     } else {

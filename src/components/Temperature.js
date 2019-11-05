@@ -1,10 +1,10 @@
 import React from 'react';
+import Value from './Value.js'
 
 const Temperature = props => {
-  console.log(props.temperature);
   return (
     <div className="temperature">
-      <h1>{props.temperature}</h1>
+      <Value label={'Air Temperature'} value={`${props.airTemperature}°F`}/>
     </div>
   );
 }

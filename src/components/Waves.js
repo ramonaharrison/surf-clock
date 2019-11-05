@@ -1,9 +1,12 @@
 import React from 'react';
+import Value from './Value.js'
 
 const Waves = props => {
   return (
     <div className="waves">
-      <p>Wave height: 0.8-0.9m</p>
+      <Value label={'Wave Direction'} value={props.waveDirection}/>
+      <Value label={'Wave Height'} value={props.waveHeight}/>
+      <Value label={'Wave Period'} value={props.wavePeriod}/>
     </div>
   );
 }

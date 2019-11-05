@@ -1,9 +1,12 @@
 import React from 'react';
+import Value from './Value.js'
 
 const Wind = props => {
   return (
     <div className="wind">
-      <p>Wind: SW 10.2-21.4kph</p>
+      <Value label={'Wind Direction'} value={props.windDirection}/>
+      <Value label={'Wind Speed'} value={props.windSpeed}/>
+      <Value label={'Gusts'} value={props.gust}/>
     </div>
   );
 }

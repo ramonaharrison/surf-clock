@@ -1,10 +1,12 @@
 import React from 'react';
+import Value from './Value.js'
 
 const Tides = props => {
   return (
     <div className="tides">
-      <p>Low tide: 16:25</p>
-      <p>High tide: 22:06</p>
+      <Value label={'Water Temperature'} value={props.waterTemperature}/>
+      <Value label={'High Tide'} value={''}/>
+      <Value label={'Low Tide'} value={''}/>
     </div>
   );
 }
