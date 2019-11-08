@@ -8,8 +8,9 @@ import Wind from './components/Wind.js'
 import Tides from './components/Tides.js'
 import Daylength from './components/Daylength.js'
 import LocationChooser from './components/location/LocationChooser.js'
-import mockAstronomy from './astronomy.js'
-import mockWeather from './weather.js'
+import mockAstronomy from './mock/astronomy.js'
+import mockWeather from './mock/weather.js'
+import mockTide from './mock/tide.js'
 
 const fetchFromNetwork = false
 
@@ -25,6 +26,8 @@ function App() {
     sunset: ''
   });
   const [weather, setWeather] = useState();
+
+  const [tide, setTide] = useState();
 
   const handleLocationChange = location => {
     fetchLatLong(location)
@@ -42,8 +45,12 @@ function App() {
         latitude: latLong.lat,
         longitude: latLong.lng
       });
+
+      const now = (new Date()).toISOString()
+
       fetchAstronomy(latLong.lat, latLong.lng)
-      fetchWeather(latLong.lat, latLong.lng)
+      fetchWeather(latLong.lat, latLong.lng, now)
+      fetchTide(latLong.lat, latLong.lng, now)
     }
 
     const fetchAstronomy = async (lat, long, params) => {
@@ -60,20 +67,40 @@ function App() {
           sunrise: json.days[0].sunrise,
           sunset: json.days[0].sunset
         });
-      } else {
+        } else {
         json = await mockAstronomy
 
         setAstronomy({
           sunrise: json.days[0].sunrise,
           sunset: json.days[0].sunset
         });
+        }
+    }
+
+    const fetchTide = async (lat, long, now) => {
+      var json
+      if (fetchFromNetwork) {
+        const response = await fetch(`https://api.stormglass.io/v1/tide/extremes/point?lat=${lat}&lng=${long}&start=${now}&end=${now}`, {
+          headers: {
+            'Authorization': process.env.REACT_APP_STORM_GLASS_KE
+          }
+        })
+        json = await response.json();
+        setTide({
+          extremas: json.extremas
+        });
+      } else {
+        json = await mockTide
+
+        setTide({
+          extremas: json.extremas
+        });
       }
     }
 
-    const fetchWeather = async (lat, long) => {
+    const fetchWeather = async (lat, long, now) => {
       var json
       if (fetchFromNetwork) {
-        const now = (new Date()).toISOString()
         const response = await fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${long}&start=${now}&end=${now}&source=noaa`, {
           headers: {
             'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
@@ -106,16 +133,20 @@ function App() {
       }
     }
 
-    if (weather && astronomy) {
+    if (weather && astronomy && tide) {
       return (
         <div className="App">
         <LocationChooser onLocationChange={handleLocationChange}/>
         <Clock />
-        <Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/>
-        <Temperature airTemperature={weather.airTemperature}/>
-        <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
-        <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
-        <Tides waterTemperature={weather.waterTemperature}/>
+
+        <table>
+        <tr>
+        <td><Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/></td>
+        <td><Temperature airTemperature={weather.airTemperature}/><Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/></td>
+        <td><Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/></td>
+        <td><Tides waterTemperature={weather.waterTemperature}/></td>
+        </tr>
+        </table>
         </div>
       );
     } else {
