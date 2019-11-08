@@ -50,29 +50,25 @@ function App() {
     })
   }
 
-    if (weather && astronomy && tide) {
-      return (
-        <div className="App">
+  if (weather && astronomy && tide) {
+    return (
+      <div className="App">
         <LocationChooser onLocationChange={handleLocationChange}/>
-        <Clock />
-
-        <table>
-        <tr>
-        <td><Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/></td>
-        <td><Temperature airTemperature={weather.airTemperature}/><Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/></td>
-        <td><Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/></td>
-        <td><Tides waterTemperature={weather.waterTemperature}/></td>
-        </tr>
-        </table>
-        </div>
-      );
-    } else {
-      return (
-        <div className="App">
+        <Clock/>
+        <Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/>
+        <Temperature airTemperature={weather.airTemperature}/>
+        <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
+        <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
+        <Tides waterTemperature={weather.waterTemperature}/>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
         <LocationChooser onLocationChange={handleLocationChange}/>
-        </div>
-      )
-    }
+      </div>
+    )
   }
+}
 
-  export default App;
+export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Value from './Value'
 
 class Clock extends React.Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.date.toLocaleTimeString('en-US', { timeStyle: 'short' })}</h1>
-      </div>
+      <Value label={'Time'} value={this.state.date.toLocaleTimeString('en-US', { timeStyle: 'short' })}/>
     );
   }
 }
