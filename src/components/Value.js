@@ -17,10 +17,16 @@ const Value = props => {
     textAlign: 'left'
   }
 
+  const unit = {
+    fontSize: '12px',
+    fontWeight: 'bold',
+    verticalAlign: 'middle'
+  }
+
   return (
     <div style={container}>
       <div style={label}>{props.label}</div>
-      <div style={value}>{props.value}</div>
+      <div style={value}>{props.value}<span style={unit}>{props.unit}</span></div>
     </div>
   );
 }

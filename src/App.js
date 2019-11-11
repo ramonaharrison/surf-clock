@@ -59,7 +59,7 @@ function App() {
         <Temperature airTemperature={weather.airTemperature}/>
         <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
         <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
-        <Tides waterTemperature={weather.waterTemperature}/>
+        <Tides waterTemperature={weather.waterTemperature} extremas={tide.extremas}/>
       </div>
     );
   } else {

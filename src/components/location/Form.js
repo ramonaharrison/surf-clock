@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 class Form extends Component {
   state = {
-    input: ""
+    input: this.props.input
   };
 
   handleSubmit = e => {
