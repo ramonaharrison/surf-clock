@@ -4,10 +4,11 @@ const Value = props => {
 
   const container = {
     width: '200px',
-    padding: '10px 20px'
+    padding: '8px 16px'
   }
 
   const label = {
+    color: '#fde7dd',
     fontSize: '12px',
     textAlign: 'left',
     fontWeight: 'bold'
@@ -19,9 +20,10 @@ const Value = props => {
   }
 
   const unit = {
-    fontSize: '12px',
+    fontSize: '14px',
     fontWeight: 'bold',
-    verticalAlign: 'middle'
+    padding: '4px',
+    verticalAlign: 'super'
   }
 
   return (

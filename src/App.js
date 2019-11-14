@@ -6,6 +6,7 @@ import Temperature from './components/Temperature.js'
 import Waves from './components/Waves.js'
 import Wind from './components/Wind.js'
 import Tides from './components/Tides.js'
+import Direction from './components/Direction.js'
 import Daylength from './components/Daylength.js'
 import LocationChooser from './components/location/LocationChooser.js'
 import { fetchLatLong, fetchAstronomy, fetchTide, fetchWeather } from './services/api.js'
@@ -50,16 +51,32 @@ function App() {
     })
   }
 
+  const gridStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'auto auto auto'
+  }
+
+  const gridItem = {
+    display: 'grid'
+  }
+
   if (weather && astronomy && tide) {
     return (
-      <div className="App">
+      <div>
         <LocationChooser onLocationChange={handleLocationChange}/>
+      <div style={gridStyle}>
         <Clock/>
-        <Daylength sunrise={astronomy.sunrise} sunset={astronomy.sunset}/>
+        <Daylength suntime={astronomy.sunrise} label={'Sunrise'}/>
+        <Daylength suntime={astronomy.sunset} label={'Sunset'}/>
         <Temperature airTemperature={weather.airTemperature}/>
-        <Wind windDirection={weather.windDirection} windSpeed={weather.windSpeed} gust={weather.gust}/>
-        <Waves waveDirection={weather.waveDirection} waveHeight={weather.waveHeight} wavePeriod={weather.wavePeriod}/>
-        <Tides waterTemperature={weather.waterTemperature} extremas={tide.extremas}/>
+        <Direction direction={weather.windDirection} label={'Wind Direction'}/>
+        <Wind windValue={weather.windSpeed} label={'Wind Speed'}/>
+        <Wind windValue={weather.gust} label={'Gusts'}/>
+        <Waves waves={weather.waveHeight} label={'Wave Height'} unit={'meters'}/>
+        <Waves waves={weather.wavePeriod} label={'Wave Period'} unit={'seconds'}/>
+        <Direction direction={weather.waveDirection} label={'Wave Direction'}/>
+        <Tides waterTemperature={weather.waterTemperature}/>
+      </div>
       </div>
     );
   } else {
