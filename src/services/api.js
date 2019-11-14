@@ -1,6 +1,7 @@
 import mockAstronomy from './mock/astronomy.js'
 import mockWeather from './mock/weather.js'
 import mockTide from './mock/tide.js'
+import mockLocation from './mock/location.js'
 
 const fetchFromNetwork = false
 
@@ -8,7 +9,12 @@ export const fetchLatLong = async (location) => {
   const encodedLocation = encodeURIComponent(location)
   const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
     const json = await response.json();
-    return json.results[0].geometry
+
+    if (json.results[0] && json.results[0].geometry) {
+      return json.results[0].geometry
+    } else {
+      return mockLocation
+    }
   }
 
   export const fetchAstronomy = async (lat, long) => {

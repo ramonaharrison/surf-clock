@@ -3,7 +3,8 @@ import React from 'react';
 const Value = props => {
 
   const container = {
-    width: '200px'
+    width: '200px',
+    padding: '10px 20px'
   }
 
   const label = {
