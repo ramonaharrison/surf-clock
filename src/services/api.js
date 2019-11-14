@@ -25,6 +25,7 @@ export const fetchLatLong = async (location) => {
         }
       })
       const json = await response.json();
+      console.log(`astronomy: `, json)
       return json
     } else {
       return mockAstronomy

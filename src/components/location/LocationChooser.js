@@ -7,7 +7,7 @@ const LocationChooser = (props) => {
 
   useEffect(() => {
     props.onLocationChange(location);
-  });
+  }, []);
 
   const handleSubmit = location => {
     if (location) {
