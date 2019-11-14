@@ -52,6 +52,14 @@ function App() {
     })
   }
 
+  const pageStyle = {
+    padding: '16px'
+  }
+
+  const headerStyle = {
+    padding: '0px 16px 24px 16px'
+  }
+
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'auto auto auto'
@@ -63,8 +71,10 @@ function App() {
 
   if (weather && astronomy && tide) {
     return (
-      <div>
+      <div style={pageStyle}>
+      <div style={headerStyle}>
         <LocationChooser onLocationChange={handleLocationChange}/>
+      </div>
       <div style={gridStyle}>
         <Clock/>
         <Daylength suntime={astronomy.sunrise} label={'Sunrise'}/>
