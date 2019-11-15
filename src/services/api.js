@@ -6,6 +6,7 @@ import mockLocation from './mock/location.js'
 const fetchFromNetwork = false
 
 export const fetchLatLong = async (location) => {
+  console.log('Fetching Lat/Long for location: ' + location)
   const encodedLocation = encodeURIComponent(location)
   const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
     const json = await response.json();

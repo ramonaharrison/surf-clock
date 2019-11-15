@@ -10,9 +10,8 @@ const LocationChooser = (props) => {
   }, []);
 
   const handleSubmit = location => {
-    if (location) {
-      setLocation(location)
-    }
+    setLocation(location)
+    props.onLocationChange(location);
   };
 
   return (

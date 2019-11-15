@@ -8,9 +8,6 @@ class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.input);
-    this.setState(prevState => ({
-      input: ""
-    }));
   };
 
   handleChange = e => {
