@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/surf-clock/static/css/main.71773b02.chunk.css",
-    "main.js": "/surf-clock/static/js/main.65630720.chunk.js",
-    "main.js.map": "/surf-clock/static/js/main.65630720.chunk.js.map",
+    "main.js": "/surf-clock/static/js/main.d3e48275.chunk.js",
+    "main.js.map": "/surf-clock/static/js/main.d3e48275.chunk.js.map",
     "runtime~main.js": "/surf-clock/static/js/runtime~main.d9899b18.js",
     "runtime~main.js.map": "/surf-clock/static/js/runtime~main.d9899b18.js.map",
     "static/js/2.04df598c.chunk.js": "/surf-clock/static/js/2.04df598c.chunk.js",
     "static/js/2.04df598c.chunk.js.map": "/surf-clock/static/js/2.04df598c.chunk.js.map",
     "index.html": "/surf-clock/index.html",
-    "precache-manifest.1e74224dd48cba4b4641f9573f10e9a9.js": "/surf-clock/precache-manifest.1e74224dd48cba4b4641f9573f10e9a9.js",
+    "precache-manifest.c1efeabbdfcbb5c736582a7cb29bcd90.js": "/surf-clock/precache-manifest.c1efeabbdfcbb5c736582a7cb29bcd90.js",
     "service-worker.js": "/surf-clock/service-worker.js",
     "static/css/main.71773b02.chunk.css.map": "/surf-clock/static/css/main.71773b02.chunk.css.map",
     "static/media/logo.svg": "/surf-clock/static/media/logo.5d5d9eef.svg"
