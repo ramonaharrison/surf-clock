@@ -6,7 +6,7 @@ import mockLocation from './mock/location.js'
 const fetchFromNetwork = false
 
 export const fetchLatLong = async (location) => {
-  console.log('Fetching Lat/Long and weather for location: ' + location)
+  console.log(`Fetching lat/long for location=${location}`)
   if (fetchFromNetwork) {
     const encodedLocation = encodeURIComponent(location)
     const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
@@ -24,6 +24,7 @@ export const fetchLatLong = async (location) => {
 }
 
 export const fetchAstronomy = async (lat, long) => {
+  console.log(`Fetching astronomy for lat=${lat}, long=${long}`)
   if (fetchFromNetwork) {
     const response = await fetch(`https://api.stormglass.io/v1/astronomy/point?lat=${lat}&lng=${long}&numberOfDays=1`, {
       headers: {
@@ -38,6 +39,7 @@ export const fetchAstronomy = async (lat, long) => {
 }
 
 export const fetchTide = async (lat, long, now) => {
+  console.log(`Fetching tide for lat=${lat}, long=${long}`)
   if (fetchFromNetwork) {
     const response = await fetch(`https://api.stormglass.io/v1/tide/extremes/point?lat=${lat}&lng=${long}&start=${now}&end=${now}`, {
       headers: {
@@ -52,6 +54,7 @@ export const fetchTide = async (lat, long, now) => {
 }
 
 export const fetchWeather = async (lat, long, now) => {
+  console.log(`Fetching weather for lat=${lat}, long=${long}`)
   if (fetchFromNetwork) {
     const response = await fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${long}&start=${now}&end=${now}&source=noaa`, {
       headers: {
