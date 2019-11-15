@@ -18,7 +18,6 @@ function App() {
 
   const handleLocationChange = location => {
     const now = (new Date()).toISOString()
-    console.log("handleLocationChange")
     updateWeather(location, now)
   };
 
