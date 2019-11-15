@@ -76,17 +76,18 @@ function App() {
         <LocationChooser onLocationChange={handleLocationChange}/>
       </div>
       <div style={gridStyle}>
-        <Clock/>
-        <Daylength suntime={astronomy.sunrise} label={'Sunrise'}/>
-        <Daylength suntime={astronomy.sunset} label={'Sunset'}/>
-        <Temperature airTemperature={weather.airTemperature}/>
-        <Direction direction={weather.windDirection} label={'Wind Direction'}/>
-        <Wind windValue={weather.windSpeed} label={'Wind Speed'}/>
-        <Wind windValue={weather.gust} label={'Gusts'}/>
-        <Waves waves={weather.waveHeight} label={'Wave Height'} unit={'meters'}/>
-        <Waves waves={weather.wavePeriod} label={'Wave Period'} unit={'seconds'}/>
-        <Direction direction={weather.waveDirection} label={'Wave Direction'}/>
         <Tides waterTemperature={weather.waterTemperature}/>
+        <Temperature airTemperature={weather.airTemperature}/>
+        <Clock/>
+        <Waves waves={weather.waveHeight} label={'Wave Height'} unit={'meters'}/>
+        <Wind windValue={weather.windSpeed} label={'Wind Speed'}/>
+        <Daylength suntime={astronomy.sunrise} label={'Sunrise'}/>
+        <Waves waves={weather.wavePeriod} label={'Wave Period'} unit={'seconds'}/>
+        <Wind windValue={weather.gust} label={'Gusts'}/>
+        <Daylength suntime={astronomy.sunset} label={'Sunset'}/>
+        <Direction direction={weather.waveDirection} label={'Wave Direction'}/>
+        <Direction direction={weather.windDirection} label={'Wind Direction'}/>
+
       </div>
       </div>
     );
