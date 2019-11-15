@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/surf-clock/precache-manifest.09d17d87accd06ec42daff99feb9e76c.js"
+  "/surf-clock/precache-manifest.1283b2e3c564d31ad2709e8736b765f2.js"
 );
 
 self.addEventListener('message', (event) => {
