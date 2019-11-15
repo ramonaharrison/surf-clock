@@ -22,6 +22,7 @@ class Form extends Component {
 
   inputStyle = {
     backgroundColor: '#c06c84',
+    opacity: 0.65,
     color: 'white',
     border: 'none',
     borderRadius: '30px',

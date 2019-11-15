@@ -57,11 +57,16 @@ function App() {
   }
 
   const headerStyle = {
-    padding: '0px 16px 24px 16px'
+    padding: '0px 16px 8px 16px'
   }
 
   const gridStyle = {
+    margin: '16px',
+    padding: '16px',
     display: 'grid',
+    background: '#ffffff30',
+    border: 'none',
+    borderRadius: '30px',
     gridTemplateColumns: 'auto auto auto'
   }
 
