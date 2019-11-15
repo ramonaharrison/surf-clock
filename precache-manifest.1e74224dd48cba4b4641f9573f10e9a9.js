@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1d62cced72c2f9a8e77c834ea324ece",
+    "revision": "b1890b1289d82cf00cbd6ede273096dd",
     "url": "/surf-clock/index.html"
   },
   {
-    "revision": "f285795b3c2137f30dc9",
+    "revision": "bf62f9d650e7aae87d9f",
     "url": "/surf-clock/static/css/main.71773b02.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/surf-clock/static/js/2.04df598c.chunk.js"
   },
   {
-    "revision": "f285795b3c2137f30dc9",
-    "url": "/surf-clock/static/js/main.be65ce51.chunk.js"
+    "revision": "bf62f9d650e7aae87d9f",
+    "url": "/surf-clock/static/js/main.65630720.chunk.js"
   },
   {
     "revision": "6a96433939bfcd8fb083",
