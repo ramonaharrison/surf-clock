@@ -6,57 +6,62 @@ import mockLocation from './mock/location.js'
 const fetchFromNetwork = false
 
 export const fetchLatLong = async (location) => {
-  console.log('Fetching Lat/Long for location: ' + location)
-  const encodedLocation = encodeURIComponent(location)
-  const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
+  if (fetchFromNetwork) {
+    // console.log('Fetching Lat/Long for location: ' + location)
+    // const encodedLocation = encodeURIComponent(location)
+    // const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodedLocation}&key=${process.env.REACT_APP_OPEN_CAGE_KEY}`)
+    //   const json = await response.json();
+    //
+    //   if (json.results[0] && json.results[0].geometry) {
+    //     return json.results[0].geometry
+    //   } else {
+    //     return mockLocation
+    //   }
+    return mockLocation
+  } else {
+    return mockLocation
+  }
+}
+
+export const fetchAstronomy = async (lat, long) => {
+  if (fetchFromNetwork) {
+    const response = await fetch(`https://api.stormglass.io/v1/astronomy/point?lat=${lat}&lng=${long}&numberOfDays=1`, {
+      headers: {
+        'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
+      }
+    })
     const json = await response.json();
-
-    if (json.results[0] && json.results[0].geometry) {
-      return json.results[0].geometry
-    } else {
-      return mockLocation
-    }
+    return json
+  } else {
+    return mockAstronomy
   }
+}
 
-  export const fetchAstronomy = async (lat, long) => {
-    if (fetchFromNetwork) {
-      const response = await fetch(`https://api.stormglass.io/v1/astronomy/point?lat=${lat}&lng=${long}&numberOfDays=1`, {
-        headers: {
-          'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
-        }
-      })
-      const json = await response.json();
-      return json
-    } else {
-      return mockAstronomy
-    }
+export const fetchTide = async (lat, long, now) => {
+  if (fetchFromNetwork) {
+    const response = await fetch(`https://api.stormglass.io/v1/tide/extremes/point?lat=${lat}&lng=${long}&start=${now}&end=${now}`, {
+      headers: {
+        'Authorization': process.env.REACT_APP_STORM_GLASS_KE
+      }
+    })
+    const json = await response.json();
+    return json
+  } else {
+    return mockTide
   }
+}
 
-  export const fetchTide = async (lat, long, now) => {
-    if (fetchFromNetwork) {
-      const response = await fetch(`https://api.stormglass.io/v1/tide/extremes/point?lat=${lat}&lng=${long}&start=${now}&end=${now}`, {
-        headers: {
-          'Authorization': process.env.REACT_APP_STORM_GLASS_KE
-        }
-      })
-      const json = await response.json();
-      return json
-    } else {
-      return mockTide
-    }
+export const fetchWeather = async (lat, long, now) => {
+  if (fetchFromNetwork) {
+    const response = await fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${long}&start=${now}&end=${now}&source=noaa`, {
+      headers: {
+        'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
+      }
+    })
+
+    const json = await response.json();
+    return json.hours[0]
+  } else {
+    return mockWeather.hours[0]
   }
-
-  export const fetchWeather = async (lat, long, now) => {
-    if (fetchFromNetwork) {
-      const response = await fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${long}&start=${now}&end=${now}&source=noaa`, {
-        headers: {
-          'Authorization': process.env.REACT_APP_STORM_GLASS_KEY
-        }
-      })
-
-      const json = await response.json();
-      return json.hours[0]
-    } else {
-      return mockWeather.hours[0]
-    }
-  }
+}
